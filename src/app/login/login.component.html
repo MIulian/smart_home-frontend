@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost:4200">Smart Home</a>
+    </div>
+  </div>
+</nav> 
+<div class="container col-lg-6">
+  <h1 class="col-lg-6">Login</h1>
+  <div class="card col-lg-6" >
+    <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="col-12 form-control" placeholder="Enter your Username" formControlName="username" id="username" autocomplete="off">
+        <div class="error" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">Username is required</div>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="col-12 form-control" placeholder="Enter your Password" formControlName="password" id="pwd" autocomplete="off">
+        <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>
+      </div>
+      <button class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Invalid credentials.</div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
