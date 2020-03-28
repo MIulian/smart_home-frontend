@@ -5,7 +5,7 @@
           <a class="navbar-link" href="/list-user"> Useri </a>
         </li>
         <li class="nav-item">
-          <a class="navbar-link" href="/objects"> Lista-Obiecte </a>
+          <a class="navbar-link" href="/boards"> Panouri de comanda </a>
         </li>
       </ul>
       <ul class="navbar-nav navbar-collapse justify-content-end">
@@ -26,12 +26,9 @@
         <th>FirstName</th>
         <th>LastName</th>
         <th>Age</th>
-        <th>Created by</th>
-        <th>Created Date</th>
-        <th>Modify by</th>
-        <th>Modify Date</th>
         <th>Adress</th>
         <th>Phone</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -44,14 +41,11 @@
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.age}}</td>
-        <td>{{user.createdBy}}</td>
-        <td>{{user.createdDate}}</td>
-        <td>{{user.modifyBy}}</td>
-        <td>{{user.modifyDate}}</td>
         <td>{{user.address}}</td>
         <td>{{user.phone}}</td>
         <td><button class="btn btn-success" (click)="deleteUser(user)"> Delete</button></td>
-        <td><button class="btn btn-success" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td>
+        <td><button class="btn btn-success" (click)="editUser(user)"> Edit</button></td>
+        <td><button class="btn btn-success"  style="margin-left: 20px;" (click)="getBoards(user)">Show Boards</button></td>
       </tr>
       </tbody>
       <br>

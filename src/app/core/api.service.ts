@@ -8,29 +8,41 @@ import {ApiResponse} from "../model/api.response";
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8080/users/';
+  baseUrl: string = 'http://localhost:8080/';
 
   login(loginPayload) : Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/' + 'token/generate-token', loginPayload);
+    return this.http.post<ApiResponse>(`${this.baseUrl}token/generate-token`, loginPayload);
   }
 
   getUsers() : Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl);
+    return this.http.get<ApiResponse>(`${this.baseUrl}users/`);
   }
 
   getUserById(id: number): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl + id);
+    return this.http.get<ApiResponse>(`${this.baseUrl}users/${id}`);
   }
 
   createUser(user: User): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl, user);
+    return this.http.post<ApiResponse>(`${this.baseUrl}users/`, user);
   }
 
   updateUser(user: User): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(this.baseUrl + user.id, user);
+    return this.http.put<ApiResponse>(`${this.baseUrl}users/${user.id}`, user);
   }
 
   deleteUser(id: number): Observable<ApiResponse> {
-    return this.http.delete<ApiResponse>(this.baseUrl + id);
+    return this.http.delete<ApiResponse>(`${this.baseUrl}users/${id}`);
+  }
+
+  boardsUser(id: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.baseUrl}boards/${id}`);
+  }
+
+  allBoards(): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.baseUrl}boards/`);
+  }
+
+  deleteBoard(id: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.baseUrl}boards/${id}`);
   }
 }

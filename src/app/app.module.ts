@@ -11,7 +11,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {routing} from "./app-routing.module";
 import {TokenInterceptor} from "./core/interceptor";
-import { ObjectsComponent } from './objects/objects.component';
+import { BoardsComponent } from './boards/boards.component';
+import { EditBoardsComponent } from './edit-boards/edit-boards.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ObjectsComponent } from './objects/objects.component';
     AddUserComponent,
     EditUserComponent,
     ListUserComponent,
-    ObjectsComponent
+    BoardsComponent,
+    EditBoardsComponent
   ],
   imports: [
     BrowserModule,
