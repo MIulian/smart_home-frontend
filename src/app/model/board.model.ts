@@ -1,6 +1,6 @@
 export class Board {
 
-    id: number;
-    serial: string;
+    boardId: number;
+    boardSerial: string;
   
   }

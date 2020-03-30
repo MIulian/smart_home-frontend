@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {User} from "../model/user.model";
+import {Board} from "../model/board.model";
 import {Observable} from "rxjs/index";
 import {ApiResponse} from "../model/api.response";
 
@@ -44,5 +45,11 @@ export class ApiService {
 
   deleteBoard(id: number): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${this.baseUrl}boards/${id}`);
+  }
+  editBoard(serial: string): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.baseUrl}boards/edit/${serial}`);
+  }
+  updateBoard(board: Board): Observable<ApiResponse> {
+    return this.http.put<ApiResponse>(`${this.baseUrl}boards/${board.boardId}`, board);
   }
 }

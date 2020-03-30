@@ -9,21 +9,29 @@ import {Board} from "../model/board.model";
   styleUrls: ['./boards.component.css']
 })
 export class BoardsComponent implements OnInit {
-  boards: Board[]
+  boards: Board[];
 
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    let userId = window.localStorage.getItem("UserIdBoards");
-    if(!userId) {
-      alert("Invalid action.")
-      this.router.navigate(['list-user']);
-      return;
+    let userId = window.localStorage.getItem("userIdBoards");
+    if(!userId){
+      this.apiService.allBoards().subscribe( data => { this.boards = data.result; })
+    }else{
+      this.apiService.boardsUser(+userId).subscribe( data => { this.boards = data.result; })
     }
-    this.apiService.allBoards()
-      .subscribe( data => {
-        this.boards = data.result;
-      })
+    this.clearLocalStorage();
+  }
+
+  editBoard(board: Board): void {
+    window.localStorage.removeItem("boardSerial");
+    window.localStorage.setItem("boardSerial", board.boardSerial.toString());
+    this.router.navigate(['edit-boards']);
+
+  }
+
+  clearLocalStorage(): void{
+  window.localStorage.removeItem("userIdBoards");
   }
 
 }

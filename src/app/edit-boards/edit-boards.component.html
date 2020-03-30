@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div> <a class="navbar-brand" href="http://localhost:4200">Smart Home</a></div>
+  <div> <a class="navbar-brand" href="http://localhost:4200">Smart Home</a></div>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="navbar-link" href="/list-user"> Useri </a>
@@ -13,38 +13,46 @@
             <a class="nav-link" href="/login">Logout</a>
         </li>
   </ul>
-  </nav>
-  <div class="container col-lg-10">
-    <br>
-    <h2 style="text-align: center;">Detalii Panouri de comanda pentru user</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="hidden">Id</th>
-          <th>Name</th>
-          <th>Serial</th>
-          <th>Start Time</th>
-          <th>Autostart</th>
-          <th>Contor</th>
-          <th>Off/On</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let board of boards">
-          <td class="hidden">{{board.boardId}}</td>
-          <td>{{board.boardName}}</td>
-          <td>{{board.boardSerial}}</td>
-          <td>{{board.boardStart}}</td>
-          <td>{{board.boardAutoStart}}</td>
-          <td>{{board.boardContor}}</td>
-          <td>{{board.boardOff}}</td>
-          <td><button class="btn btn-success" (click)="deleteBoard(board)"> Delete</button></td>
-          <td><button class="btn btn-success" (click)="editBoard(board)"> Edit</button></td>
-        </tr>
-        </tbody>
-        <br>
-        <button class="btn btn-danger" style="width:120px" (click)="addBoard()"> Add Board</button>
-    </table>
-  </div>
+</nav>
+<div class="container col-lg-8">
+  <br>
+  <h2 class="text-center">Edit Panou de comanda</h2>
+  <form [formGroup]="editBoardForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <input type="text" formControlName="boardId" name="boardId" class="form-control" id="boardId"readonly="true">
+    </div>
+
+    <div class="form-group">
+      <label for="boardName">Board Name:</label>
+      <input type="text" formControlName="boardName" name="boardName" class="form-control" id="boardName">
+    </div>
+
+    <div class="form-group">
+      <label for="boardserial">Board Serial:</label>
+      <input type="text" formControlName="boardSerial" placeholder="Serial" name="boardserial" class="form-control" id="boardserial" readonly="true">
+    </div>
+      
+    <div class="form-group">
+      <label for="boardStart">Board Start Time:</label>
+      <input type="text" formControlName="boardStart" placeholder="Start_time" name="boardStart" class="form-control" id="boardStart">
+    </div>
+
+    <div class="form-group">
+      <label for="boardAutoStart">Board Autostart:</label>
+      <input type="text" formControlName="boardAutoStart" placeholder="AutoStart" name="boardAutoStart" class="form-control" id="boardAutoStart">
+    </div>
+
+    <div class="form-group">
+      <label for="boardContor">Board Contor:</label>
+      <input type="text" formControlName="boardContor" placeholder="Contor" name="boardContor" class="form-control" id="boardContor">
+    </div>
+
+    <div class="form-group">
+      <label for="boardOff" >Board Off/On:</label>
+      <input type="text" formControlName="boardOff" placeholder="On" name="boardOff" class="form-control" id="boardOff">
+    </div>
+
+   <button class="btn btn-success">Update</button>
+  </form>
+</div>

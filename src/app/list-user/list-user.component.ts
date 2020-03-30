@@ -43,9 +43,9 @@ export class ListUserComponent implements OnInit {
   };
 
   getBoards(user: User):void {
-    window.localStorage.removeItem("UserIdBoards");
-    window.localStorage.setItem("UserIdBoards", user.id.toString());
-    this.router.navigate(['edit-boards']);
+    window.localStorage.removeItem("userIdBoards");
+    window.localStorage.setItem("userIdBoards", user.id.toString());
+    this.router.navigate(['boards']);
   }
 }
 
