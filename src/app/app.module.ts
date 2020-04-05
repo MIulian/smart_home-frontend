@@ -6,13 +6,15 @@ import { LoginComponent } from './login/login.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
-import {ApiService} from "./core/api.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
-import {routing} from "./app-routing.module";
-import {TokenInterceptor} from "./core/interceptor";
+import { ApiService } from "./core/api.service";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
+import { routing } from "./app-routing.module";
+import { TokenInterceptor } from "./core/interceptor";
 import { BoardsComponent } from './boards/boards.component';
+import { UserBoardsComponent } from './user-boards/user-boards.component';
 import { EditBoardsComponent } from './edit-boards/edit-boards.component';
+import { AddBoardComponent } from './add-board/add-board.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { EditBoardsComponent } from './edit-boards/edit-boards.component';
     EditUserComponent,
     ListUserComponent,
     BoardsComponent,
-    EditBoardsComponent
+    UserBoardsComponent,
+    EditBoardsComponent,
+    AddBoardComponent
   ],
   imports: [
     BrowserModule,

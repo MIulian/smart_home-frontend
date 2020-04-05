@@ -14,13 +14,11 @@ export class BoardsComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    let userId = window.localStorage.getItem("userIdBoards");
-    if(!userId){
-      this.apiService.allBoards().subscribe( data => { this.boards = data.result; })
-    }else{
-      this.apiService.boardsUser(+userId).subscribe( data => { this.boards = data.result; })
-    }
+    
+    this.apiService.allBoards().subscribe( data => { this.boards = data.result; })
+    
     this.clearLocalStorage();
+    
   }
 
   editBoard(board: Board): void {
@@ -28,10 +26,23 @@ export class BoardsComponent implements OnInit {
     window.localStorage.setItem("boardSerial", board.boardSerial.toString());
     this.router.navigate(['edit-boards']);
 
-  }
+  };
 
   clearLocalStorage(): void{
-  window.localStorage.removeItem("userIdBoards");
-  }
+    window.localStorage.removeItem("userIdBoard");
+    window.localStorage.removeItem("editUserId");
+    window.localStorage.removeItem("boardSerial");
+  };
+
+  deleteBoard(board: Board): void{
+    this.apiService.deleteBoard(board.boardSerial)
+    .subscribe( data => {
+      this.boards = this.boards.filter(b => b !== board);
+    })
+  };
+
+  addBoard(): void{
+    this.router.navigate(['add-board']);
+  };
 
 }

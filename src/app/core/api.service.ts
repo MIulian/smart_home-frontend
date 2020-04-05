@@ -23,6 +23,10 @@ export class ApiService {
     return this.http.get<ApiResponse>(`${this.baseUrl}users/${id}`);
   }
 
+  getUsernameById(id: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.baseUrl}users/username/${id}`);
+  }
+
   createUser(user: User): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.baseUrl}users/`, user);
   }
@@ -43,13 +47,21 @@ export class ApiService {
     return this.http.get<ApiResponse>(`${this.baseUrl}boards/`);
   }
 
-  deleteBoard(id: number): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(`${this.baseUrl}boards/${id}`);
+  deleteBoard(serial: string): Observable<ApiResponse> {
+    return this.http.delete<ApiResponse>(`${this.baseUrl}boards/${serial}`);
   }
+
   editBoard(serial: string): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${this.baseUrl}boards/edit/${serial}`);
   }
+
   updateBoard(board: Board): Observable<ApiResponse> {
     return this.http.put<ApiResponse>(`${this.baseUrl}boards/${board.boardId}`, board);
+
   }
+
+  createNewBoard(board: Board): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.baseUrl}boards/`, board)
+  }
+
 }

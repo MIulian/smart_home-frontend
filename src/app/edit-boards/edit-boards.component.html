@@ -20,7 +20,7 @@
   <form [formGroup]="editBoardForm" (ngSubmit)="onSubmit()">
 
     <div>
-      <input type="text" formControlName="boardId" name="boardId" class="form-control" id="boardId"readonly="true">
+      <input type="text" formControlName="boardId" name="boardId" class="form-control" id="boardId" readonly="true">
     </div>
 
     <div class="form-group">
@@ -35,7 +35,7 @@
       
     <div class="form-group">
       <label for="boardStart">Board Start Time:</label>
-      <input type="text" formControlName="boardStart" placeholder="Start_time" name="boardStart" class="form-control" id="boardStart">
+      <input type="time" formControlName="boardStart" placeholder="Start_time" name="boardStart" class="form-control" id="boardStart">
     </div>
 
     <div class="form-group">

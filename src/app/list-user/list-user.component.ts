@@ -23,6 +23,9 @@ export class ListUserComponent implements OnInit {
       .subscribe( data => {
           this.users = data.result;
       });
+      
+      this.clearLocalStorage();
+
   }
 
   deleteUser(user: User): void {
@@ -43,9 +46,16 @@ export class ListUserComponent implements OnInit {
   };
 
   getBoards(user: User):void {
-    window.localStorage.removeItem("userIdBoards");
-    window.localStorage.setItem("userIdBoards", user.id.toString());
-    this.router.navigate(['boards']);
-  }
+    window.localStorage.removeItem("userIdBoard");
+    window.localStorage.setItem("userIdBoard", user.id.toString());
+    this.router.navigate(['user-boards']);
+  };
+  
+  clearLocalStorage(): void{
+    window.localStorage.removeItem("userIdBoard");
+    window.localStorage.removeItem("editUserId");
+    window.localStorage.removeItem("boardSerial");
+  };
+
 }
 
