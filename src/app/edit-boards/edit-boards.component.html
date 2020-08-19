@@ -16,7 +16,7 @@
 </nav>
 <div class="container col-lg-8">
   <br>
-  <h2 class="text-center">Edit Panou de comanda</h2>
+  <h2 class="text-center">Editare Panou de comanda</h2>
   <form [formGroup]="editBoardForm" (ngSubmit)="onSubmit()">
 
     <div>
@@ -24,35 +24,51 @@
     </div>
 
     <div class="form-group">
-      <label for="boardName">Board Name:</label>
+      <label for="boardName">Nume Panou:</label>
       <input type="text" formControlName="boardName" name="boardName" class="form-control" id="boardName">
     </div>
 
     <div class="form-group">
-      <label for="boardserial">Board Serial:</label>
+      <label for="boardserial">Serialul Panoului:</label>
       <input type="text" formControlName="boardSerial" placeholder="Serial" name="boardserial" class="form-control" id="boardserial" readonly="true">
     </div>
       
     <div class="form-group">
-      <label for="boardStart">Board Start Time:</label>
+      <label for="boardStart">Ora de Pornire:</label>
       <input type="time" formControlName="boardStart" placeholder="Start_time" name="boardStart" class="form-control" id="boardStart">
     </div>
 
     <div class="form-group">
-      <label for="boardAutoStart">Board Autostart:</label>
-      <input type="text" formControlName="boardAutoStart" placeholder="AutoStart" name="boardAutoStart" class="form-control" id="boardAutoStart">
+      <label for="boardStart">Date de Pornire:</label>
+      <input type="date" formControlName="boardStartDate" placeholder="Start_date" name="boardStartDate" class="form-control" id="boardStartDate">
     </div>
 
     <div class="form-group">
-      <label for="boardContor">Board Contor:</label>
-      <input type="text" formControlName="boardContor" placeholder="Contor" name="boardContor" class="form-control" id="boardContor">
+      <label for="boardStart">Timpul de rulare:</label>
+      <input type="text" formControlName="boardRunTime" placeholder="Numarul de minute" name="boardRunTime" class="form-control" id="boardRunTime">
+    </div>
+    <div class="form-group">
+      <label for="boardAutoStart">Start automat:
+      <input type="checkbox" formControlName="boardAutoStart" placeholder="AutoStart" name="boardAutoStart" class="form-control" id="boardAutoStart">
+    </label>
     </div>
 
     <div class="form-group">
-      <label for="boardOff" >Board Off/On:</label>
-      <input type="text" formControlName="boardOff" placeholder="On" name="boardOff" class="form-control" id="boardOff">
+      <label for="boardContor">Contorul:</label>
+      <select formControlName="boardContor" placeholder="Contor" name="boardContor" class="form-control" id="boardContor">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
     </div>
 
-   <button class="btn btn-success">Update</button>
+    <div class="form-group">
+      <label>Oprit/Pornit: 
+        <input type="checkbox" formControlName="boardOff" placeholder="On" name="boardOff" class="form-control" id="boardOff">
+        </label>
+      </div>
+
+   <button class="btn btn-success">Actualizare</button>
   </form>
 </div>

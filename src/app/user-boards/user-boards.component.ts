@@ -15,7 +15,7 @@ import {Board} from "../model/board.model";
   
     ngOnInit() {
       let userId = window.localStorage.getItem("userIdBoard");
-
+      
       this.apiService.boardsUser(+userId).subscribe( data => { this.boards = data.result; });
       
     }

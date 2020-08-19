@@ -20,14 +20,16 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>User Name</th>
-          <th>Board Id</th>
-          <th>Name</th>
-          <th>Serial</th>
-          <th>Start Time</th>
-          <th>Autostart</th>
+          <th>NumeUtilizatorului</th>
+          <th>Id</th>
+          <th>Numele panoului</th>
+          <th>Serialul</th>
+          <th>Ora de pornire</th>
+          <th>Data de pornire</th>
+          <th>Timpul de rulare</th>
+          <th>Start automat</th>
           <th>Contor</th>
-          <th>Off/On</th>
+          <th>Oprit/Pornit</th>
           <th></th>
           <th></th>
         </tr>
@@ -39,6 +41,8 @@
           <td>{{board.boardName}}</td>
           <td>{{board.boardSerial}}</td>
           <td>{{board.boardStart}}</td>
+          <td>{{board.boardStartDate}}</td>
+          <td>{{board.boardRunTime}}</td>
           <td>{{board.boardAutoStart}}</td>
           <td>{{board.boardContor}}</td>
           <td>{{board.boardOff}}</td>
@@ -48,6 +52,6 @@
         </tbody>
     </table>
     <br>
-        <button class="btn btn-danger" style="width:110px" (click)="addBoard()">Add Board</button>
+        <button class="btn btn-danger" style="width:180px" (click)="addBoard()">Add Board</button>
   </div>
   

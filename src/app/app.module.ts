@@ -14,6 +14,7 @@ import { BoardsComponent } from './boards/boards.component';
 import { UserBoardsComponent } from './user-boards/user-boards.component';
 import { EditBoardsComponent } from './edit-boards/edit-boards.component';
 import { AddBoardComponent } from './add-board/add-board.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddBoardComponent } from './add-board/add-board.component';
     BoardsComponent,
     UserBoardsComponent,
     EditBoardsComponent,
-    AddBoardComponent
+    AddBoardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

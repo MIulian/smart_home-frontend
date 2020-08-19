@@ -13,6 +13,7 @@ import { Board } from '../model/board.model';
 export class EditBoardsComponent implements OnInit {
   board: Board;
   editBoardForm: FormGroup;
+  runTime: Number;
   
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
@@ -28,6 +29,8 @@ export class EditBoardsComponent implements OnInit {
       boardName: ['', Validators.required],
       boardSerial: ['',Validators.required],
       boardStart: ['',Validators.required],
+      boardStartDate: ['',Validators.required],
+      boardRunTime: ['',Validators.required],
       boardAutoStart: ['',Validators.required],
       boardContor: ['',Validators.required],
       boardOff: ['',Validators.required]

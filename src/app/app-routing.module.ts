@@ -6,7 +6,9 @@ import {BoardsComponent} from "./boards/boards.component";
 import {UserBoardsComponent} from "./user-boards/user-boards.component";
 import {EditBoardsComponent} from "./edit-boards/edit-boards.component";
 import {AddBoardComponent} from "./add-board/add-board.component";
+import { LoginComponent } from './login/login.component';
 import { from } from 'rxjs';
+
 
 
 const routes: Routes = [
@@ -17,7 +19,8 @@ const routes: Routes = [
   { path: 'user-boards', component: UserBoardsComponent},
   { path: 'edit-boards', component: EditBoardsComponent},
   { path: 'add-board', component: AddBoardComponent},
-  { path : '', component : ListUserComponent}
+  //{ path : '', component : ListUserComponent}
+  { path : '', component : LoginComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

@@ -14,6 +14,8 @@ export class AddBoardComponent implements OnInit {
   userIdBoard: String;
   board: Board;
   addBoardForm: FormGroup;
+  formatsDateTest: string = 'dd/MM/yyyy';
+  dateNow : Date = new Date();
   
   constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
 
@@ -27,6 +29,8 @@ export class AddBoardComponent implements OnInit {
       boardName: ['', Validators.required],
       boardSerial: ['',Validators.required],
       boardStart: ['',Validators.required],
+      boardStartDate: ['',Validators.required],
+      boardRunTime: ['',Validators.required],
       boardAutoStart: ['',Validators.required],
       boardContor: ['',Validators.required],
       boardOff: ['',Validators.required]
