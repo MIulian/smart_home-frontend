@@ -25,6 +25,7 @@ export class EditBoardsComponent implements OnInit {
       return;
     }
     this.editBoardForm = this.formBuilder.group({
+      username: [''],
       boardId: [''],
       boardName: ['', Validators.required],
       boardSerial: ['',Validators.required],
